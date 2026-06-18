@@ -1,0 +1,74 @@
+import React from 'react';
+import ServiceLayout from '../../../components/homepage/ServiceLayout';
+import { Link } from 'react-router-dom';
+
+const ConsultationPage: React.FC = () => {
+    return (
+        <ServiceLayout currentSlug="consultation">
+            <div className="space-y-6">
+                <div>
+                    <h1 className="text-[32px] md:text-[42px] font-bold text-[#0b1b36] tracking-tight leading-tight mb-4">
+                        Consultation
+                    </h1>
+                    <div className="w-12 h-[2px] bg-[#0056b3]" />
+                </div>
+
+                <div className="text-[#575A5F] text-[15.5px] leading-[1.75] space-y-6">
+                    <p>
+                        Your family physician or general practitioner would often advise you to consult 
+                        a heart specialist (cardiologist) if there is a problem with your heart health. 
+                        Consult a cardiologist immediately if symptoms are severe. The right expertise 
+                        ensures individualized treatment, helping you recover quickly. Any delay might 
+                        negatively affect your health and lead to major cardiac issues.
+                    </p>
+
+                    <p>
+                        Regular cardiac consultations allow your doctor to monitor your heart and 
+                        provide necessary treatments. Preventive heart checks are vital to detect 
+                        silent diseases, especially if you have high-risk factors like diabetes, 
+                        high blood pressure, kidney illness, or a strong family history of heart disease.
+                    </p>
+
+                    <h3 className="text-[22px] font-bold text-[#0b1b36] pt-4">What happens during a consultation?</h3>
+                    <p>
+                       During a consultation, the doctor will question you about your complaints and concerns and go over them in depth with you. He would also inquire about any previous medical illnesses or the specifics of any current or former therapy. After that, the doctor will examine you, including blood pressure checks, and may recommend some diagnostic tests. Once the doctor has reached a diagnosis, a treatment plan will be recommended. This could include dietary and lifestyle adjustments to improve your heart’s health, medications, or a procedure such as angiography, and when to return for follow-up. During your session, please feel free to ask the doctor any questions or concerns you may have.
+                    </p>
+                    <p className="italic text-[#0056b3]">Please feel free to ask the doctor any questions or express concerns you may have during your session.</p>
+
+                    <h3 className="text-[22px] font-bold text-[#0b1b36] pt-4">Preparing for your consultation</h3>
+                    <ul className="space-y-3 my-4">
+                        {[
+                            'Prebook an appointment.',
+                            'Make a list of your symptoms, when they began, and what makes them better or worse.',
+                            'Carry all your previous medical papers with you.',
+                            'Write down all your questions or doubts and bring this paper with you.',
+                            'Bring a family member for your comfort and confidence.'
+                        ].map((pt, idx) => (
+                            <li key={idx} className="flex items-start gap-3">
+                                <span className="w-1.5 h-1.5 rounded-full bg-[#0056b3] mt-[9px] shrink-0" />
+                                <span>{pt}</span>
+                            </li>
+                        ))}
+                    </ul>
+
+                    <h3 className="text-[22px] font-bold text-[#0b1b36] pt-4">Why choose Dr. (Col) Monik Mehta?</h3>
+                    <p>
+                        Dr. (Col) Monik Mehta brings vast experience in heart disease to provide the 
+                        best possible advice. He is a top-tier cardiologist committed to promoting 
+                        healthy, vibrant lives for his patients.
+                    </p>
+                    <p>
+                      He is a strong proponent of the conservative approach for the treatment of heart diseases and believes in the philosophy that one should avoid invasive procedures or operations as far as possible . However if the need arises he is extremely competent in the use of latest and most advanced pieces of equipment that may be required to ensure that the best treatment is offered. Moreover, all the tests and procedures are performed in such a way as to ensure that the patient experiences the highest level of comfort and receives the best care for their heart.
+                    </p>
+                    <p>
+                        Many patients have benefited from his expertise over the past few decades. You 
+                        can assess the impact of his care by reading the many testimonials available 
+                        in online reviews for all to see and assess for themselves. He may be <Link to='/contactUs'>contacted here</Link>.
+                    </p>
+                </div>
+            </div>
+        </ServiceLayout>
+    );
+};
+
+export default ConsultationPage;
