@@ -15,6 +15,9 @@ import CRTDImplantationPage from '../pages/HomePage/Services/CrtdImplantationPag
 import CardiacRehabilitationPage from '../pages/HomePage/Services/CardiacRehabiliation';
 import ECGPage from '../pages/HomePage/Services/EcgPage';
 import PacemakerTestingFollowupPage from '../pages/HomePage/Services/PaceMakerCare';
+import AboutUsPage from '../pages/AboutUsPage';
+import YourDoctorPage from '../pages/YourDoctorPage';
+import ContactPage from '../pages/ContactPage';
 
 
 const serviceRoutes = [
@@ -70,6 +73,9 @@ export const router = createBrowserRouter([
             { path: '/', element: <HomePage /> },
             { path: '/services', element: <Services /> },
             ...serviceRoutes,
+             { path: '/about', element: <AboutUsPage /> },
+             { path: '/your-doctor', element: <YourDoctorPage/>},
+             { path: '/contact', element: <ContactPage/>}
         ],
     },
 ]);

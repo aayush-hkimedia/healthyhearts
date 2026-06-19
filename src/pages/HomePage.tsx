@@ -2,9 +2,10 @@ import React from 'react';
 import Hero from '../components/homepage/Hero';
 import StatsBar from '../components/homepage/StatsBar';
 import Services from '../components/homepage/Services';
-import Testimonials from '../components/homepage/Testimonials';
 import CallToAction from '../components/homepage/CallToAction';
 import PatientTestimonials from '../components/homepage/PatientTestimonials';
+import AboutSection from '../components/homepage/AboutUs';
+import TestimonialsSection from '../components/homepage/TestimonialsSection';
 
 const HomePage: React.FC = () => {
   return (
@@ -13,7 +14,8 @@ const HomePage: React.FC = () => {
       <StatsBar />
       <Services />
       <PatientTestimonials/>
-      <Testimonials />
+      <AboutSection/>
+      <TestimonialsSection/>
       <CallToAction />
     </main>
   );
