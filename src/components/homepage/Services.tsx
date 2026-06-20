@@ -25,8 +25,17 @@ const ICONS: Record<string, React.ReactNode> = {
 
 const Services: React.FC = () => {
     return (
-        <section className="bg-white py-20 font-sans" id="services">
-            <div className="max-w-7xl mx-auto px-6 mb-20">
+        <section 
+            className="relative py-24 font-sans overflow-hidden bg-[#F7FAFD]" 
+            id="services"
+        >
+            {/* Premium Gradient Background Layer */}
+            <div className="absolute inset-0 pointer-events-none">
+                <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-[#Eef3f7] rounded-full blur-[120px] opacity-60 mix-blend-multiply animate-pulse" />
+                <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-[#E0E9F0] rounded-full blur-[120px] opacity-60 mix-blend-multiply" />
+            </div>
+
+            <div className="relative max-w-7xl mx-auto px-6 lg:px-8 mb-20">
                 <div className="text-center mb-16 flex flex-col items-center">
                     <span className="text-[#0056b3] font-bold text-[12px] uppercase tracking-[0.1em] mb-3">
                         In-House Care
@@ -42,7 +51,7 @@ const Services: React.FC = () => {
                         <Link
                             key={i}
                             to={`/services/${svc.slug}`}
-                            className="group flex flex-col bg-white border border-gray-400 rounded-xl p-8 hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-all duration-300"
+                            className="group flex flex-col bg-white border border-gray-200/60 rounded-xl p-8 hover:shadow-[0_20px_40px_rgba(0,0,0,0.06)] hover:border-[#0056b3]/20 transition-all duration-300"
                         >
                             <div className="w-12 h-12 bg-[#F0F6FF] rounded-full flex items-center justify-center text-[#0056b3] mb-6">
                                 {ICONS[svc.icon]}
@@ -61,7 +70,7 @@ const Services: React.FC = () => {
                 </div>
             </div>
 
-            <div className="max-w-7xl mx-auto px-6 pb-10">
+            <div className="relative max-w-7xl mx-auto px-6 lg:px-8 pb-10">
                 <div className="text-center mb-16 flex flex-col items-center">
                     <span className="text-[#0056b3] font-bold text-[12px] uppercase tracking-[0.1em] mb-3">
                         Advanced Procedures
@@ -77,7 +86,7 @@ const Services: React.FC = () => {
                         <Link
                             key={i}
                             to={`/services/${svc.slug}`}
-                            className="group flex flex-col bg-white border border-gray-400 rounded-xl p-8 hover:shadow-[0_8px_30px_rgb(0,0,0,0.08)] transition-all duration-300"
+                            className="group flex flex-col bg-white border border-gray-200/60 rounded-xl p-8 hover:shadow-[0_20px_40px_rgba(0,0,0,0.06)] hover:border-[#0056b3]/20 transition-all duration-300"
                         >
                             <div className="w-12 h-12 bg-[#F0F6FF] rounded-full flex items-center justify-center text-[#0056b3] mb-6">
                                 {ICONS[svc.icon]}

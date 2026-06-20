@@ -11,7 +11,6 @@ import {
 } from 'lucide-react';
 import {
     NAV_LINKS,
-    DOCTOR,
     RESOURCES_DATA,
     HOSPITAL_SERVICES,
     CLINIC_SERVICE,
@@ -51,129 +50,89 @@ const Navbar: React.FC = () => {
                     to="/"
                     className="flex items-center gap-2 text-[#0b1b36] font-bold text-[22px] hover:opacity-80 transition-opacity"
                 >
-                    <Heart
-                        className="text-[#0056b3]"
-                        size={26}
-                        strokeWidth={2.5}
-                    />
+                    <Heart className="text-[#0056b3]" size={26} strokeWidth={2.5} />
                     HealthyHearts
                 </Link>
 
                 <ul className="hidden md:flex items-center gap-8 text-[15px] font-medium text-[#575A5F] h-full">
                     {NAV_LINKS.map((link) => {
                         const isActive = pathname === link.path;
-                        const hasDropdown =
-                            link.label === 'Services' ||
-                            link.label === 'Resource';
+                        const hasDropdown = link.label === 'Services' || link.label === 'Resource';
 
                         return (
-                            <li
-                                key={link.path}
-                                className="relative group h-full flex items-center"
-                            >
-                                <Link
-                                    to={link.path}
-                                    className={`flex items-center gap-1 py-1 transition-all duration-300 ${
-                                        isActive
-                                            ? 'text-[#0056b3] font-semibold'
-                                            : 'group-hover:text-[#0056b3]'
-                                    }`}
-                                >
-                                    {link.label}
-                                    {hasDropdown && (
+                            <li key={link.path} className="relative group h-full flex items-center">
+                                {hasDropdown ? (
+                                    // Non-clickable Dropdown Trigger
+                                    <span className="flex items-center gap-1 py-1 cursor-default group-hover:text-[#0056b3] transition-colors duration-300">
+                                        {link.label}
                                         <ChevronDown
                                             size={16}
                                             className="mt-[2px] transition-transform duration-300 group-hover:rotate-180"
                                         />
-                                    )}
-                                </Link>
+                                    </span>
+                                ) : (
+                                    // Normal Link
+                                    <Link
+                                        to={link.path}
+                                        className={`flex items-center gap-1 py-1 transition-all duration-300 ${
+                                            isActive ? 'text-[#0056b3] font-semibold' : 'group-hover:text-[#0056b3]'
+                                        }`}
+                                    >
+                                        {link.label}
+                                    </Link>
+                                )}
 
-                                <span
-                                    className={`absolute bottom-[24px] left-0 h-[2px] bg-[#0056b3] rounded-full transition-all duration-300 ${isActive ? 'w-full' : 'w-0 group-hover:w-full'}`}
-                                />
+                                {!hasDropdown && (
+                                    <span
+                                        className={`absolute bottom-[24px] left-0 h-[2px] bg-[#0056b3] rounded-full transition-all duration-300 ${
+                                            isActive ? 'w-full' : 'w-0 group-hover:w-full'
+                                        }`}
+                                    />
+                                )}
 
                                 {hasDropdown && (
                                     <div className="absolute top-[60px] left-[-20px] opacity-0 pointer-events-none group-hover:opacity-100 group-hover:pointer-events-auto transition-all duration-300 ease-out transform translate-y-2 group-hover:translate-y-0 pt-4 z-50">
                                         <div
-                                            className={`bg-white rounded-2xl shadow-[0_20px_50px_-15px_rgba(0,86,179,0.2)] border border-gray-100 p-8 flex ${link.label === 'Services' ? 'w-[560px] gap-10' : 'w-[220px] flex-col'}`}
+                                            className={`bg-white rounded-2xl shadow-[0_20px_50px_-15px_rgba(0,86,179,0.2)] border border-gray-100 p-8 flex ${
+                                                link.label === 'Services' ? 'w-[560px] gap-10' : 'w-[220px] flex-col'
+                                            }`}
                                         >
                                             {link.label === 'Services' ? (
                                                 <>
                                                     <div className="flex-1">
-                                                        <h3 className="font-bold text-[#0056b3] mb-4 text-[12px] uppercase tracking-widest">
-                                                            Clinic
-                                                        </h3>
+                                                        <h3 className="font-bold text-[#0056b3] mb-4 text-[12px] uppercase tracking-widest">Clinic</h3>
                                                         <ul className="flex flex-col gap-3">
-                                                            {CLINIC_SERVICE.map(
-                                                                (item) => (
-                                                                    <li
-                                                                        key={
-                                                                            item.slug
-                                                                        }
-                                                                    >
-                                                                        <Link
-                                                                            to={`/services/${item.slug}`}
-                                                                            className="text-sm flex items-center gap-2 hover:text-[#0056b3] transition-all"
-                                                                        >
-                                                                            {
-                                                                                CLINIC_ICONS[
-                                                                                    item
-                                                                                        .title
-                                                                                ]
-                                                                            }{' '}
-                                                                            {
-                                                                                item.title
-                                                                            }
-                                                                        </Link>
-                                                                    </li>
-                                                                ),
-                                                            )}
+                                                            {CLINIC_SERVICE.map((item) => (
+                                                                <li key={item.slug}>
+                                                                    <Link to={`/services/${item.slug}`} className="text-sm flex items-center gap-2 hover:text-[#0056b3] transition-all">
+                                                                        {CLINIC_ICONS[item.title]} {item.title}
+                                                                    </Link>
+                                                                </li>
+                                                            ))}
                                                         </ul>
                                                     </div>
                                                     <div className="flex-1 border-l border-gray-100 pl-8">
-                                                        <h3 className="font-bold text-[#0056b3] mb-4 text-[12px] uppercase tracking-widest">
-                                                            Hospital
-                                                        </h3>
+                                                        <h3 className="font-bold text-[#0056b3] mb-4 text-[12px] uppercase tracking-widest">Hospital</h3>
                                                         <ul className="flex flex-col gap-3">
-                                                            {HOSPITAL_SERVICES.map(
-                                                                (item) => (
-                                                                    <li
-                                                                        key={
-                                                                            item.path
-                                                                        }
-                                                                    >
-                                                                        <Link
-                                                                            to={
-                                                                                item.path
-                                                                            }
-                                                                            className="text-sm hover:text-[#0056b3] transition-all block"
-                                                                        >
-                                                                            {
-                                                                                item.label
-                                                                            }
-                                                                        </Link>
-                                                                    </li>
-                                                                ),
-                                                            )}
+                                                            {HOSPITAL_SERVICES.map((item) => (
+                                                                <li key={item.path}>
+                                                                    <Link to={item.path} className="text-sm hover:text-[#0056b3] transition-all block">
+                                                                        {item.label}
+                                                                    </Link>
+                                                                </li>
+                                                            ))}
                                                         </ul>
                                                     </div>
                                                 </>
                                             ) : (
                                                 <ul className="flex flex-col gap-3">
-                                                    {RESOURCES_DATA.map(
-                                                        (item) => (
-                                                            <li key={item.path}>
-                                                                <Link
-                                                                    to={
-                                                                        item.path
-                                                                    }
-                                                                    className="text-sm hover:text-[#0056b3] transition-all block"
-                                                                >
-                                                                    {item.label}
-                                                                </Link>
-                                                            </li>
-                                                        ),
-                                                    )}
+                                                    {RESOURCES_DATA.map((item) => (
+                                                        <li key={item.path}>
+                                                            <Link to={item.path} className="text-sm hover:text-[#0056b3] transition-all block">
+                                                                {item.label}
+                                                            </Link>
+                                                        </li>
+                                                    ))}
                                                 </ul>
                                             )}
                                         </div>
@@ -186,7 +145,7 @@ const Navbar: React.FC = () => {
 
                 <div className="hidden md:block">
                     <a
-                        href={`tel:${DOCTOR?.phone || '9873214382'}`}
+                        href="https://calendly.com/healthyheartsgurgaon/appointment?month=2026-06"
                         className="bg-[#0A2540] hover:bg-[#0056b3] text-white py-2.5 px-6 rounded text-[14px] font-semibold transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 block"
                     >
                         Book Appointment

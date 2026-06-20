@@ -1,5 +1,6 @@
 import React from 'react';
 import ServiceLayout from '../../../components/homepage/ServiceLayout';
+import { Link } from 'react-router-dom';
 
 const PacemakerTestingFollowupPage: React.FC = () => {
     return (
@@ -76,7 +77,7 @@ const PacemakerTestingFollowupPage: React.FC = () => {
                     <p>
                         Many patients have benefited from the care given by Dr.(Col) Monik Mehta over the past few 
                         decades, and the many testimonials given by grateful patients are available in online reviews 
-                        for all to see and assess for themselves. He may be contacted here.
+                        for all to see and assess for themselves. He may be <Link to='/contact'>contacted here.</Link>
                     </p>
                 </div>
             </div>

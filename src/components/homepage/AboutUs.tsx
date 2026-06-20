@@ -67,7 +67,7 @@ const AboutSection: React.FC = () => {
                     <div className="lg:col-span-5 relative w-full flex justify-center lg:justify-end">
                         <div className="rounded-2xl shadow-[0_20px_50px_-10px_rgba(0,0,0,0.1)] w-full object-cover">
                             <img
-                                src={DOCTOR.image}
+                                src={DOCTOR.image2}
                                 alt={DOCTOR.name}
                                 className="w-full h-full object-cover rounded-2xl"
                                 loading="lazy"

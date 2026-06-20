@@ -18,7 +18,13 @@ import PacemakerTestingFollowupPage from '../pages/HomePage/Services/PaceMakerCa
 import AboutUsPage from '../pages/AboutUsPage';
 import YourDoctorPage from '../pages/YourDoctorPage';
 import ContactPage from '../pages/ContactPage';
-
+import BlogPage from '../pages/BlogPage';
+import BlogDetails from '../components/blogs/BlogDetails';
+import ResourcesPage from '../pages/ResourcePage';
+import PatientEducationResourcesPage from '../pages/Resources/PatientEducationResourcesPage';
+import FrequentlyAskedQuestionsPage from '../pages/Resources/FrequentlyAskedQuestionsPage';
+import CommonHeartConditionsPage from '../pages/Resources/CommonHeartConditions';
+import ConsultationForHeart from '../pages/HomePage/Services/ConsultationForHeart';
 
 const serviceRoutes = [
     { path: '/services/2d-echo', element: <EchocardiographyPage /> },
@@ -42,28 +48,47 @@ const serviceRoutes = [
     },
     {
         path: '/services/consultation',
-        element: <ConsultationPage/>,
+        element: <ConsultationPage />,
     },
     {
         path: '/services/ecg',
-        element: <ECGPage/>,
+        element: <ECGPage />,
     },
     {
         path: '/services/heart-failure-treatment',
-        element: <HeartFailureTreatmentPage/>,
+        element: <HeartFailureTreatmentPage />,
     },
     {
         path: '/services/crtd-lbba-implantation',
-        element: <CRTDImplantationPage/>,
+        element: <CRTDImplantationPage />,
     },
     {
         path: '/services/cardiac-rehabilitation',
-        element: <CardiacRehabilitationPage/>
+        element: <CardiacRehabilitationPage />,
     },
     {
         path: '/services/pacemaker-testing-followup',
-        element: <PacemakerTestingFollowupPage/>
-    }
+        element: <PacemakerTestingFollowupPage />,
+    },
+      {
+        path: '/services/consultation-for-heart',
+        element: <ConsultationForHeart />,
+    },
+];
+
+const resourcesRoutes = [
+    {
+        path: '/resources/patient-education-resources',
+        element: < PatientEducationResourcesPage/>,
+    },
+    {
+        path: '/resources/frequently-asked-questions',
+        element: <FrequentlyAskedQuestionsPage />,
+    },
+    {
+        path: '/resources/common-heart-conditions',
+        element: <CommonHeartConditionsPage/>,
+    },
 ];
 
 export const router = createBrowserRouter([
@@ -73,9 +98,13 @@ export const router = createBrowserRouter([
             { path: '/', element: <HomePage /> },
             { path: '/services', element: <Services /> },
             ...serviceRoutes,
-             { path: '/about', element: <AboutUsPage /> },
-             { path: '/your-doctor', element: <YourDoctorPage/>},
-             { path: '/contact', element: <ContactPage/>}
+            { path: '/about', element: <AboutUsPage /> },
+            { path: '/your-doctor', element: <YourDoctorPage /> },
+            { path: '/contact', element: <ContactPage /> },
+            { path: '/blog', element: <BlogPage /> },
+            { path: '/blog/:slug', element: <BlogDetails /> },
+            { path: '/resources', element: <ResourcesPage /> },
+            ...resourcesRoutes,
         ],
     },
 ]);

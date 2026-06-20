@@ -31,7 +31,7 @@ const Footer: React.FC = () => {
                         cardiology practice serving Gurgaon and Delhi NCR.
                     </p>
                     <a
-                        href={`tel:${DOCTOR.phone}`}
+                        href={`https://calendly.com/healthyheartsgurgaon/appointment?month=2026-06`}
                         className="inline-block bg-[#0056b3] text-white px-7 py-3 rounded-lg font-semibold text-[14px] hover:bg-[#004494] transition-all mt-2 shadow-[0_4px_14px_0_rgba(0,86,179,0.39)] hover:-translate-y-0.5"
                     >
                         Book an Appointment

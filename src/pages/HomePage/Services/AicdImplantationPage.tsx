@@ -30,8 +30,6 @@ const AICDImplantationPage: React.FC = () => {
                         pacemaker-like device used to manage severe or life-threatening arrhythmias.
                     </p>
                     
-                    
-
                     <ul className="space-y-3.5 my-4">
                         {[
                             'Unlike a pacemaker, which is used for dangerously slow heartbeats, the AICD is designed for life-threatening rapid rhythms.',

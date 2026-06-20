@@ -1,7 +1,10 @@
 import React from 'react';
 import ServiceLayout from '../../../components/homepage/ServiceLayout';
+import { Link } from 'react-router-dom';
 
 const CRTDImplantationPage: React.FC = () => {
+    const linkStyle = "text-[#0056b3] font-semibold decoration-2 underline-offset-2 hover:text-[#003d80] transition-colors";
+
     return (
         <ServiceLayout currentSlug="crtd-lbba-implantation">
             <div className="space-y-6">
@@ -35,7 +38,7 @@ const CRTDImplantationPage: React.FC = () => {
                         30 years of experience. An expert in cardiac resynchronization devices, he 
                         maintains an exceptional track record in treating critical patients successfully. 
                         Dr. Mehta is known for treating his patients with profound compassion, ensuring 
-                        comfort and clarity throughout the entire procedure.
+                        comfort and clarity throughout the entire procedure. You can reach out for a consultation <Link to="/contact" className={linkStyle}>here</Link>.
                     </p>
 
                     <h3 className="text-[22px] font-bold text-[#0b1b36] pt-4">Working Mechanism of CRTD</h3>

@@ -40,7 +40,6 @@ const CoronaryAngiographyPage: React.FC = () => {
                     </ul>
 
                     <h3 className="text-[22px] font-bold text-[#0b1b36] pt-4">Stages of the Procedure</h3>
-                    
                     <ul className="space-y-3.5 my-4">
                         {[
                             'A long, thin, flexible tube called a catheter is inserted into a blood vessel in your groin or arm.',

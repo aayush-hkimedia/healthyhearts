@@ -63,7 +63,7 @@ const ConsultationPage: React.FC = () => {
                     <p>
                         Many patients have benefited from his expertise over the past few decades. You 
                         can assess the impact of his care by reading the many testimonials available 
-                        in online reviews for all to see and assess for themselves. He may be <Link to='/contactUs'>contacted here</Link>.
+                        in online reviews for all to see and assess for themselves. He may be <Link to='/contact'>contacted here</Link>.
                     </p>
                 </div>
             </div>

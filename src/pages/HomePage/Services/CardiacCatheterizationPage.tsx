@@ -1,7 +1,10 @@
 import React from 'react';
 import ServiceLayout from '../../../components/homepage/ServiceLayout';
+import { Link } from 'react-router-dom';
 
 const CardiacCatheterizationPage: React.FC = () => {
+    const linkStyle = "text-[#0056b3] font-semibold decoration-2 underline-offset-2 hover:text-[#003d80] transition-colors";
+
     return (
         <ServiceLayout currentSlug="cardiac-catheterization">
             <div className="space-y-6">
@@ -16,7 +19,7 @@ const CardiacCatheterizationPage: React.FC = () => {
                     <p>
                         Cardiac catheterization, also called cardiac cath or coronary angiogram, is an 
                         invasive imaging procedure that allows evaluating your heart function. 
-                        Today, Healthy Hearts will guide you on what Cardiac catheterization is used to:
+                        Today, <Link to='/' className={linkStyle}>Healthy Hearts</Link> will guide you on what Cardiac catheterization is used to:
                     </p>
 
                     <ul className="space-y-3 my-4">
@@ -67,7 +70,7 @@ const CardiacCatheterizationPage: React.FC = () => {
                     <p>
                         Position the catheter by a short, hollow, plastic cover called a sheath. 
                         Once a catheter is in place, your doctor would proceed with the tests needed 
-                        to diagnose your condition. Depending on the requirement, your doctor may 
+                        to diagnose your condition. Depending on the requirement, <Link to='/your-doctor' className={linkStyle}>your doctor</Link> may 
                         perform one of the following procedures:
                     </p>
                     

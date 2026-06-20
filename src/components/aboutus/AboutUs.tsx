@@ -11,7 +11,7 @@ const AboutUs: React.FC = () => {
       <section className="relative bg-gradient-to-b from-[#F0F6FF]/60 to-white py-20 px-6 text-center">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-[#0056b3]/5 blur-[100px] rounded-full pointer-events-none"></div>
         <div className="relative z-10 max-w-4xl mx-auto flex flex-col items-center gap-4">
-          <span className="inline-flex items-center justify-center px-4 py-1.5 rounded-xl bg-white border border-[#0056b3]/10 text-[#0056b3] font-bold text-[12px] uppercase tracking-[0.1em] shadow-sm">
+          <span className="text-[#0056b3] font-bold text-[11px] uppercase tracking-[0.2em]">
             About Us
           </span>
           <h1 className="text-[36px] md:text-[44px] font-semibold text-[#0b1b36] tracking-tight mb-2">

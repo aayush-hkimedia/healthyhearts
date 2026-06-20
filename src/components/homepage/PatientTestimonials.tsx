@@ -13,25 +13,26 @@ const TESTIMONIALS: TestimonialVideo[] = [
 ];
 
 const PatientTestimonials: React.FC = () => {
-    const scrollItems = [...TESTIMONIALS, ...TESTIMONIALS];
+    const scrollItems = [...TESTIMONIALS, ...TESTIMONIALS, ...TESTIMONIALS];
 
     return (
-        <section className="bg-white py-2 font-sans overflow-hidden" id="testimonials">
-            <div className="w-full">
+        <section className="bg-white py-20 font-sans overflow-hidden" id="testimonials">
+            {/* Width matched to AboutSection: max-w-7xl with px-6 lg:px-8 */}
+            <div className="max-w-7xl mx-auto px-6 lg:px-8">
                 
                 <div className="text-center mb-16">
-                    <h2 className="text-[32px] md:text-[40px] font-semibold text-[#1c2456] tracking-tight">
+                    <h2 className="text-[32px] md:text-[40px] font-bold text-[#0b1b36] tracking-tight">
                         Patient Testimonials
                     </h2>
-                    <div className="w-12 h-[3px] bg-[#1c2456] mx-auto mt-5 rounded-full"></div>
+                    <div className="w-16 h-[3px] bg-[#0056b3] mx-auto mt-5 rounded-full"></div>
                 </div>
 
-                <div className="relative w-full overflow-hidden mb-16 group">
-                    <div className="flex gap-8 animate-marquee whitespace-nowrap will-change-transform group-hover:[animation-play-state:paused] px-4">
+                <div className="relative w-full overflow-hidden group">
+                    <div className="flex gap-8 animate-marquee whitespace-nowrap will-change-transform group-hover:[animation-play-state:paused]">
                         {scrollItems.map((video, idx) => (
                             <div 
                                 key={idx}
-                                className="w-[85vw] md:w-[45vw] lg:w-[31vw] xl:w-[31.5vw] shrink-0 aspect-video rounded-2xl overflow-hidden bg-black shadow-md transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl border border-gray-100"
+                                className="w-[320px] md:w-[480px] shrink-0 aspect-video rounded-2xl overflow-hidden bg-gray-100 shadow-[0_4px_20px_rgba(0,0,0,0.05)] transition-all duration-500 hover:scale-[1.02] hover:shadow-2xl border border-gray-100"
                             >
                                 <iframe
                                     className="w-full h-full border-0 pointer-events-auto"
@@ -44,26 +45,15 @@ const PatientTestimonials: React.FC = () => {
                         ))}
                     </div>
                 </div>
-
-                {/* <div className="flex justify-center">
-                    <Link
-                        to="/testimonials"
-                        className="bg-[#1c2456] hover:bg-[#151b40] text-white text-[16px] font-medium px-10 py-3.5 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-1"
-                    >
-                        Read more
-                    </Link>
-                </div> */}
-
             </div>
 
             <style>{`
                 @keyframes marquee {
-                    0% { transform: translateX(0%); }
-                    /* -50% shifts exactly half the items, -1rem accounts for half of the gap-8 (2rem) space between the two identical sets */
-                    100% { transform: translateX(calc(-50% - 1rem)); }
+                    0% { transform: translateX(0); }
+                    100% { transform: translateX(-33.33%); }
                 }
                 .animate-marquee {
-                    animation: marquee 35s linear infinite;
+                    animation: marquee 40s linear infinite;
                 }
             `}</style>
         </section>
