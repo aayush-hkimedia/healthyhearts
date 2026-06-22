@@ -1,16 +1,17 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import {  useNavigate } from 'react-router-dom';
 import { ArrowLeft, ChevronRight } from 'lucide-react';
-import { SERVICES } from '../../data/siteData';
+import { COMMON_CONDITIONS_DATA } from '../../data/siteData'; 
 
-interface ServiceLayoutProps {
+interface ResourceLayoutProps {
     children: React.ReactNode;
     currentSlug: string;
+    imageSrc?: string;
 }
 
-const ServiceLayout: React.FC<ServiceLayoutProps> = ({ children, currentSlug }) => {
+const ResourceLayout: React.FC<ResourceLayoutProps> = ({ children, currentSlug, imageSrc }) => {
     const navigate = useNavigate();
-    const otherServices = SERVICES.filter((s) => s.slug !== currentSlug).slice(0, 6);
+    const otherResources = COMMON_CONDITIONS_DATA.filter((r) => r.slug !== currentSlug).slice(0, 6);
 
     return (
         <main className="min-h-screen pt-24 sm:pt-32 pb-16 sm:pb-24 bg-gradient-to-b from-[#f3f8ff] via-white to-[#eef6ff] relative overflow-hidden font-sans">
@@ -32,19 +33,21 @@ const ServiceLayout: React.FC<ServiceLayoutProps> = ({ children, currentSlug }) 
                     </div>
 
                     <div className="lg:col-span-5 space-y-6 sm:space-y-8 lg:sticky lg:top-28">
-                        <div className="relative overflow-hidden rounded-[24px] sm:rounded-[32px] shadow-[0_20px_60px_rgba(0,86,179,0.18)]">
-                            <img
-                                src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=800&q=80"
-                                alt="Consultation"
-                                className="w-full h-[240px] sm:h-[320px] object-cover"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-[#001d3d]/60 via-transparent to-transparent" />
-                            <div className="absolute bottom-4 sm:bottom-5 left-4 sm:left-5 bg-white/90 backdrop-blur-md px-3 sm:px-4 py-1.5 sm:py-2 rounded-full shadow-lg">
-                                <p className="text-[12px] sm:text-[14px] font-semibold text-[#0b1b36] whitespace-nowrap">
-                                    Trusted by 10,000+ Patients
-                                </p>
+                        {imageSrc && (
+                            <div className="relative overflow-hidden rounded-[24px] sm:rounded-[32px] shadow-[0_20px_60px_rgba(0,86,179,0.18)]">
+                                <img
+                                    src={imageSrc}
+                                    alt="Consultation"
+                                    className="w-full h-[240px] sm:h-[320px] object-cover"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-t from-[#001d3d]/60 via-transparent to-transparent" />
+                                <div className="absolute bottom-4 sm:bottom-5 left-4 sm:left-5 bg-white/90 backdrop-blur-md px-3 sm:px-4 py-1.5 sm:py-2 rounded-full shadow-lg">
+                                    <p className="text-[12px] sm:text-[14px] font-semibold text-[#0b1b36] whitespace-nowrap">
+                                        Trusted by 10,000+ Patients
+                                    </p>
+                                </div>
                             </div>
-                        </div>
+                        )}
 
                         <div className="rounded-[24px] sm:rounded-[32px] overflow-hidden border border-blue-100 bg-white/85 backdrop-blur-xl shadow-[0_20px_60px_rgba(0,86,179,0.12)]">
                             <div className="px-5 sm:px-7 py-5 sm:py-6 bg-gradient-to-r from-[#003b7a] via-[#0056b3] to-[#0d8bff]">
@@ -82,18 +85,15 @@ const ServiceLayout: React.FC<ServiceLayoutProps> = ({ children, currentSlug }) 
 
                         <div className="rounded-[24px] sm:rounded-[32px] p-5 sm:p-8 bg-white/85 backdrop-blur-xl border border-white shadow-[0_20px_60px_rgba(0,0,0,0.06)]">
                             <span className="text-[#0056b3] font-bold text-[11px] sm:text-[12px] uppercase tracking-[0.1em] mb-2 block">
-                                More Services
+                                Knowledge Hub
                             </span>
                             <h3 className="text-[24px] sm:text-[32px] md:text-[40px] font-semibold text-[#0b1b36] mb-4 sm:mb-5 leading-tight tracking-tight">
-                                Hospital Services
+                                Related Topics
                             </h3>
                             <ul className="space-y-1">
-                                {otherServices.map((item) => (
+                                {otherResources.map((item) => (
                                     <li key={item.slug}>
-                                        <Link
-                                            to={`/services/${item.slug}`}
-                                            className="py-3 px-3 sm:px-4 rounded-xl sm:rounded-2xl flex items-center justify-between hover:bg-blue-50 transition-all group gap-4"
-                                        >
+                                        <div className="py-3 px-3 sm:px-4 rounded-xl sm:rounded-2xl flex items-center justify-between hover:bg-blue-50 transition-all group gap-4 cursor-default">
                                             <span className="text-[14px] sm:text-[15px] text-[#575A5F] leading-[1.5] font-medium group-hover:text-[#0056b3] transition-colors truncate">
                                                 {item.title}
                                             </span>
@@ -101,7 +101,7 @@ const ServiceLayout: React.FC<ServiceLayoutProps> = ({ children, currentSlug }) 
                                                 size={16}
                                                 className="text-gray-400 shrink-0 group-hover:text-[#0056b3] group-hover:translate-x-1 transition-all"
                                             />
-                                        </Link>
+                                        </div>
                                     </li>
                                 ))}
                             </ul>
@@ -113,4 +113,4 @@ const ServiceLayout: React.FC<ServiceLayoutProps> = ({ children, currentSlug }) 
     );
 };
 
-export default ServiceLayout;
+export default ResourceLayout;

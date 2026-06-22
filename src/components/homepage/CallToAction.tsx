@@ -12,16 +12,20 @@ const CallToAction: React.FC<CallToActionProps> = ({
   description = "Schedule a comprehensive consultation with Dr. Monik Mehta — one of India's leading interventional cardiologists. Early evaluation saves lives.",
 }) => {
   return (
-    <section className="bg-[#FCFDFF] py-24 px-6">
-      <div className="max-w-7xl mx-auto space-y-20">
+    <section className="bg-[#FCFDFF] py-14 sm:py-20 lg:py-24 px-4 sm:px-6 font-sans">
+      <div className="max-w-7xl mx-auto space-y-16 lg:space-y-24">
         
-        <div className="space-y-12">
-          <div className="text-center space-y-3">
-            <h2 className="text-[36px] md:text-[44px] font-bold text-[#0b1b36] tracking-tight">Stay Connected</h2>
-            <p className="text-[16px] text-[#575A5F] max-w-lg mx-auto">Join our community for regular heart-health insights and clinic updates.</p>
+        <div className="space-y-8 sm:space-y-12">
+          <div className="text-center space-y-2.5">
+            <h2 className="text-[28px] sm:text-[36px] md:text-[44px] font-bold text-[#0b1b36] tracking-tight">
+              Stay Connected
+            </h2>
+            <p className="text-[15px] sm:text-[16px] text-[#575A5F] max-w-lg mx-auto balance">
+              Join our community for regular heart-health insights and clinic updates.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
             {[
               { 
                 label: 'Facebook', 
@@ -36,17 +40,17 @@ const CallToAction: React.FC<CallToActionProps> = ({
                 src: "https://www.instagram.com/healthyheartsgurgaon/embed" 
               }
             ].map((social, i) => (
-              <div key={i} className="bg-white p-3 rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500">
-                <div className="flex items-center gap-3 px-4 py-4 border-b border-gray-50 mb-3">
-                  <div className={`p-2 rounded-full ${social.bg}`}>
+              <div key={i} className="bg-white p-3 sm:p-4 rounded-3xl border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-500">
+                <div className="flex items-center gap-3 px-2 sm:px-4 py-3 border-b border-gray-50 mb-3">
+                  <div className={`p-2 rounded-full shrink-0 ${social.bg}`}>
                     {social.svg}
                   </div>
-                  <span className="font-bold text-[#0b1b36]">{social.label}</span>
+                  <span className="font-bold text-[#0b1b36] text-[15px] sm:text-[16px]">{social.label}</span>
                 </div>
-                <div className="relative aspect-[16/10] overflow-hidden rounded-2xl">
+                <div className="relative aspect-[16/10] overflow-hidden rounded-2xl bg-gray-50">
                   <iframe
                     src={social.src}
-                    className="w-full h-full border-none"
+                    className="w-full h-full border-none absolute inset-0"
                     scrolling="no"
                     frameBorder="0"
                     allowFullScreen={true}
@@ -58,22 +62,35 @@ const CallToAction: React.FC<CallToActionProps> = ({
           </div>
         </div>
 
-        <div className="bg-white border border-gray-100 p-10 md:p-16 rounded-[2rem] shadow-[0_20px_50px_-15px_rgba(0,86,179,0.1)] flex flex-col lg:flex-row items-center justify-between gap-10">
-          <div className="space-y-4 max-w-2xl text-center lg:text-left">
-            <span className="text-[#0056b3] font-bold text-[12px] uppercase tracking-[0.2em] block">Take Action Today</span>
-            <h2 className="text-[32px] md:text-[40px] font-bold text-[#0b1b36] leading-tight tracking-tight">{title}</h2>
-            <p className="text-[16px] md:text-[17px] text-[#575A5F] leading-[1.7]">{description}</p>
+        <div className="bg-white border border-gray-100 p-6 sm:p-10 lg:p-16 rounded-[1.5rem] sm:rounded-[2rem] shadow-[0_20px_50px_-15px_rgba(0,86,179,0.1)] flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-10">
+          <div className="space-y-3 max-w-2xl text-center lg:text-left">
+            <span className="text-[#0056b3] font-bold text-[11px] sm:text-[12px] uppercase tracking-[0.2em] block">
+              Take Action Today
+            </span>
+            <h2 className="text-[24px] sm:text-[32px] md:text-[40px] font-bold text-[#0b1b36] leading-tight tracking-tight">
+              {title}
+            </h2>
+            <p className="text-[14px] sm:text-[16px] md:text-[17px] text-[#575A5F] leading-[1.65] balance">
+              {description}
+            </p>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 shrink-0 w-full sm:w-auto">
-            <a href={`tel:${DOCTOR.phone}`} className="bg-[#0b1b36] text-white px-8 py-4 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-[#0056b3] transition-all shadow-lg hover:shadow-blue-900/20">
-              <Phone size={18} /> Call Now
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 shrink-0 w-full lg:w-auto">
+            <a 
+              href={`tel:${DOCTOR.phone}`} 
+              className="bg-[#0b1b36] text-white px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-[#0056b3] transition-all shadow-lg hover:shadow-blue-900/20 whitespace-nowrap text-[15px]"
+            >
+              <Phone size={18} /> <span>Call Now</span>
             </a>
-            <a href="https://calendly.com/healthyheartsgurgaon/appointment" className="bg-white border-2 border-[#0056b3] text-[#0056b3] px-8 py-4 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-[#F0F6FF] transition-all">
-              Book Online <ArrowRight size={18} />
+            <a 
+              href="https://calendly.com/healthyheartsgurgaon/appointment" 
+              className="bg-white border-2 border-[#0056b3] text-[#0056b3] px-6 sm:px-8 py-3.5 sm:py-4 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-[#F0F6FF] transition-all whitespace-nowrap text-[15px]"
+            >
+              <span>Book Online</span> <ArrowRight size={18} />
             </a>
           </div>
         </div>
+
       </div>
     </section>
   );
