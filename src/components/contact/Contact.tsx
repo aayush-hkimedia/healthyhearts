@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
-import { MapPin, Phone, Mail, Clock, Send, ChevronRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { MapPin, Phone, Mail, Clock, Send, ChevronRight, ArrowLeft } from 'lucide-react';
 import { LOCATIONS, DOCTOR } from '../../data/siteData';
 
 const Contact: React.FC = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -40,11 +42,25 @@ const Contact: React.FC = () => {
   return (
     <main className="font-sans antialiased text-[#575A5F] bg-[#FCFDFF]">
       
-      <section className="bg-white py-14 sm:py-20 px-4 sm:px-6 text-center border-b border-gray-100">
-        <h1 className="text-[32px] sm:text-[40px] md:text-[48px] font-bold text-[#0b1b36] mb-3.5 tracking-tight">Contact Us</h1>
-        <p className="text-[#575A5F] max-w-lg mx-auto leading-relaxed text-[15px] sm:text-[16px] balance">
-          Reach out to schedule a consultation or ask any question about your cardiac care journey.
-        </p>
+      <section className="bg-white pt-[100px] lg:pt-[120px] pb-14 sm:pb-20 px-4 sm:px-6 border-b border-gray-100">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex justify-start mb-6 sm:mb-8">
+            <button 
+              onClick={() => navigate(-1)} 
+              className="inline-flex items-center gap-2 text-[#575A5F] hover:text-[#0056b3] transition-colors text-[14px] sm:text-[15px] font-medium z-50 relative cursor-pointer"
+            >
+              <ArrowLeft size={18} />
+              <span>Go Back</span>
+            </button>
+          </div>
+          
+          <div className="text-center">
+            <h1 className="text-[32px] sm:text-[40px] md:text-[48px] font-bold text-[#0b1b36] mb-3.5 tracking-tight">Contact Us</h1>
+            <p className="text-[#575A5F] max-w-lg mx-auto leading-relaxed text-[15px] sm:text-[16px] balance">
+              Reach out to schedule a consultation or ask any question about your cardiac care journey.
+            </p>
+          </div>
+        </div>
       </section>
 
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-20 lg:py-24">

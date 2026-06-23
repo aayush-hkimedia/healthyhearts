@@ -1,11 +1,24 @@
 import React from 'react';
-import { BookOpen } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { BookOpen, ArrowLeft } from 'lucide-react';
 import { PATIENT_EDUCATION_RESOURCES } from '../../data/siteData';
 
 const PatientEducationResourcesPage: React.FC = () => {
+    const navigate = useNavigate();
+
     return (
-        <main className="font-sans antialiased bg-[#FCFDFF] min-h-screen py-14 sm:py-20 px-4 sm:px-6">
+        <main className="font-sans antialiased bg-[#FCFDFF] min-h-screen pt-[100px] lg:pt-[120px] pb-14 sm:pb-20 lg:pb-24 px-4 sm:px-6">
             <div className="max-w-7xl mx-auto mb-12 sm:mb-20">
+                <div className="flex justify-start mb-6 sm:mb-8">
+                    <button
+                        onClick={() => navigate(-1)}
+                        className="inline-flex items-center gap-2 text-[#575A5F] hover:text-[#0056b3] transition-colors text-[14px] sm:text-[15px] font-medium relative z-50 cursor-pointer"
+                    >
+                        <ArrowLeft size={18} />
+                        <span>Go Back</span>
+                    </button>
+                </div>
+
                 <div className="text-center mb-10 sm:mb-16 flex flex-col items-center">
                     <div className="w-11 h-11 sm:w-12 sm:h-12 bg-[#F0F6FF] rounded-full flex items-center justify-center text-[#0056b3] mb-5 sm:mb-6 shrink-0">
                         <div className="block sm:hidden">

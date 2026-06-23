@@ -1,13 +1,25 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { Activity } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
+import { Activity, ArrowLeft } from 'lucide-react';
 import { COMMON_CONDITIONS_DATA } from '../../data/siteData';
 
 const CommonHeartConditionsPage: React.FC = () => {
+    const navigate = useNavigate();
+
     return (
-        <main className="font-sans antialiased bg-[#FCFDFF] min-h-screen py-14 sm:py-20 lg:py-24 px-4 sm:px-6">
+        <main className="font-sans antialiased bg-[#FCFDFF] min-h-screen pt-[100px] lg:pt-[120px] pb-14 sm:pb-20 lg:pb-24 px-4 sm:px-6">
             <div className="max-w-4xl mx-auto mb-12 sm:mb-20">
                 
+                <div className="flex justify-start mb-6 sm:mb-8">
+                    <button
+                        onClick={() => navigate(-1)}
+                        className="inline-flex items-center gap-2 text-[#575A5F] hover:text-[#0056b3] transition-colors text-[14px] sm:text-[15px] font-medium relative z-50 cursor-pointer"
+                    >
+                        <ArrowLeft size={18} />
+                        <span>Go Back</span>
+                    </button>
+                </div>
+
                 <div className="text-center mb-10 sm:mb-16 md:mb-20 flex flex-col items-center">
                     <div className="w-14 h-14 sm:w-16 sm:h-16 bg-[#F0F6FF] rounded-2xl flex items-center justify-center text-[#0056b3] mb-5 sm:mb-8 rotate-3 shadow-sm shrink-0">
                         <Activity size={28} strokeWidth={1.5} className="-rotate-3" />

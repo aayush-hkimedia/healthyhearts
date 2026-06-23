@@ -1,13 +1,13 @@
 import React from 'react';
 import ServiceLayout from '../../../components/homepage/ServiceLayout';
 
-const CardiacRehabilitationPage: React.FC = () => {
+const CardiacElectrophysiologyandRFAPage: React.FC = () => {
     return (
-        <ServiceLayout currentSlug="cardiac-rehabilitation">
+        <ServiceLayout currentSlug="cardiac-electrophysiology-&-rfapage">
             <div className="space-y-6">
                 <div>
                     <h1 className="text-[32px] md:text-[42px] font-bold text-[#0b1b36] tracking-tight leading-tight mb-4">
-                        Cardiac Rehabilitation
+                        Cardiac Electrophsiology & RFA Page
                     </h1>
                     <div className="w-12 h-[2px] bg-[#0056b3]" />
                 </div>
@@ -266,4 +266,4 @@ const CardiacRehabilitationPage: React.FC = () => {
     );
 };
 
-export default CardiacRehabilitationPage;
+export default CardiacElectrophysiologyandRFAPage;

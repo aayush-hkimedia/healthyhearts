@@ -12,7 +12,6 @@ import TavrPage from '../pages/HomePage/Services/Tavr';
 import ConsultationPage from '../pages/HomePage/Services/ConsultationPage';
 import HeartFailureTreatmentPage from '../pages/HomePage/Services/HeartFailureTreatment';
 import CRTDImplantationPage from '../pages/HomePage/Services/CrtdImplantationPage';
-import CardiacRehabilitationPage from '../pages/HomePage/Services/CardiacRehabiliation';
 import ECGPage from '../pages/HomePage/Services/EcgPage';
 import PacemakerTestingFollowupPage from '../pages/HomePage/Services/PaceMakerCare';
 import YourDoctorPage from '../pages/YourDoctorPage';
@@ -30,6 +29,8 @@ import CholesterolPage from '../pages/Resources/CommonHeartConditions/Cholestero
 import CongenitalHeartDefectsPage from '../pages/Resources/CommonHeartConditions/CongenitalHeartDefects';
 import DiabetesPage from '../pages/Resources/CommonHeartConditions/Diabetes';
 import HeartAttackPage from '../pages/Resources/CommonHeartConditions/HeartAttackPage';
+import CardiacElectrophysiologyandRFAPage from '../pages/HomePage/Services/CardiacElectrophysiologyandRFAPage';
+import ComingSoonResource from '../pages/Resources/CommonHeartConditions/ComingSoon';
 
 const serviceRoutes = [
     { path: '/services/2d-echo', element: <EchocardiographyPage /> },
@@ -56,8 +57,8 @@ const serviceRoutes = [
         element: <CRTDImplantationPage />,
     },
     {
-        path: '/services/cardiac-rehabilitation',
-        element: <CardiacRehabilitationPage />,
+        path: '/services/cardiac-electrophysiology-&-rfa',
+        element: <CardiacElectrophysiologyandRFAPage />,
     },
     {
         path: '/services/pacemaker-testing-followup',
@@ -116,6 +117,7 @@ const conditionRoutes = [
     // { path: '/resource/sleep-disorders', element: <SleepDisordersPage /> },
     // { path: '/resource/stroke', element: <StrokePage /> },
     // { path: '/resource/venous-thromboembolism', element: <VenousThromboembolismPage /> },
+    { path: '/resource/:conditionSlug', element: <ComingSoonResource /> }
 ];
 
 export const router = createBrowserRouter([

@@ -29,6 +29,7 @@ const Navbar: React.FC = () => {
     const [scrolled, setScrolled] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
     const [isSearchFocused, setIsSearchFocused] = useState(false);
+    const [expandedMobileMenu, setExpandedMobileMenu] = useState<string | null>(null);
     const { pathname } = useLocation();
     const searchRef = useRef<HTMLDivElement>(null);
 
@@ -36,6 +37,7 @@ const Navbar: React.FC = () => {
         setMobileOpen(false);
         setSearchQuery('');
         setIsSearchFocused(false);
+        setExpandedMobileMenu(null);
     }, [pathname]);
 
     useEffect(() => {
@@ -119,6 +121,10 @@ const Navbar: React.FC = () => {
                 )}
             </div>
         );
+    };
+
+    const toggleMobileMenu = (menuName: string) => {
+        setExpandedMobileMenu(expandedMobileMenu === menuName ? null : menuName);
     };
 
     return (
@@ -300,7 +306,6 @@ const Navbar: React.FC = () => {
                     </div>
                 </div>
 
-                {/* DESKTOP WHATSAPP BUTTON */}
                 <div className="hidden lg:flex items-center gap-3">
                     <a
                         href="https://wa.me/919873214382"
@@ -317,7 +322,6 @@ const Navbar: React.FC = () => {
                     </a>
                 </div>
 
-                {/* MOBILE VIEW (TOGGLE + WHATSAPP) */}
                 <div className="lg:hidden flex items-center gap-3">
                     <a
                         href="https://wa.me/919873214382"
@@ -341,7 +345,6 @@ const Navbar: React.FC = () => {
                 </div>
             </nav>
 
-            {/* MOBILE MENU CONTENT */}
             {mobileOpen && (
                 <div className="lg:hidden absolute w-full bg-white border-t border-gray-100 p-6 flex flex-col gap-4 shadow-lg animate-in slide-in-from-top-4 max-h-[calc(100vh-76px)] overflow-y-auto">
                     <div className="relative mb-2">
@@ -364,15 +367,118 @@ const Navbar: React.FC = () => {
                         </div>
                     ) : (
                         <>
-                            {NAV_LINKS.map((link) => (
-                                <Link
-                                    key={link.path}
-                                    to={link.path}
-                                    className="text-[16px] font-medium text-[#575A5F] hover:text-[#0056b3] py-1"
-                                >
-                                    {link.label}
-                                </Link>
-                            ))}
+                            {NAV_LINKS.map((link) => {
+                                const hasDropdown =
+                                    link.label === 'Services' ||
+                                    link.label === 'Resource';
+
+                                if (hasDropdown) {
+                                    const isExpanded =
+                                        expandedMobileMenu === link.label;
+                                    return (
+                                        <div
+                                            key={link.path}
+                                            className="flex flex-col"
+                                        >
+                                            <button
+                                                onClick={() =>
+                                                    toggleMobileMenu(link.label)
+                                                }
+                                                className="flex items-center justify-between text-[16px] font-medium text-[#575A5F] hover:text-[#0056b3] py-2 text-left"
+                                            >
+                                                {link.label}
+                                                <ChevronDown
+                                                    size={18}
+                                                    className={`transition-transform duration-300 ${
+                                                        isExpanded
+                                                            ? 'rotate-180'
+                                                            : ''
+                                                    }`}
+                                                />
+                                            </button>
+                                            {isExpanded && (
+                                                <div className="pl-4 pb-2 flex flex-col gap-3 border-l-2 border-[#F0F6FF] ml-2 mt-2">
+                                                    {link.label ===
+                                                        'Services' && (
+                                                        <>
+                                                            <h4 className="text-[11px] font-bold text-[#0056b3] uppercase tracking-widest mt-1 mb-1">
+                                                                Clinic
+                                                            </h4>
+                                                            {CLINIC_SERVICE.map(
+                                                                (item) => (
+                                                                    <Link
+                                                                        key={
+                                                                            item.slug
+                                                                        }
+                                                                        to={`/services/${item.slug}`}
+                                                                        className="text-[14px] text-[#575A5F] py-1 hover:text-[#0056b3]"
+                                                                    >
+                                                                        {
+                                                                            item.title
+                                                                        }
+                                                                    </Link>
+                                                                ),
+                                                            )}
+                                                            <h4 className="text-[11px] font-bold text-[#0056b3] uppercase tracking-widest mt-4 mb-1">
+                                                                Hospital
+                                                            </h4>
+                                                            {HOSPITAL_SERVICES.map(
+                                                                (item) => (
+                                                                    <Link
+                                                                        key={
+                                                                            item.path
+                                                                        }
+                                                                        to={
+                                                                            item.path
+                                                                        }
+                                                                        className="text-[14px] text-[#575A5F] py-1 hover:text-[#0056b3]"
+                                                                    >
+                                                                        {
+                                                                            item.label
+                                                                        }
+                                                                    </Link>
+                                                                ),
+                                                            )}
+                                                        </>
+                                                    )}
+                                                    {link.label ===
+                                                        'Resource' && (
+                                                        <>
+                                                            {RESOURCES_DATA.map(
+                                                                (item) => (
+                                                                    <Link
+                                                                        key={
+                                                                            item.path
+                                                                        }
+                                                                        to={
+                                                                            item.path
+                                                                        }
+                                                                        className="text-[14px] text-[#575A5F] py-1 hover:text-[#0056b3]"
+                                                                    >
+                                                                        {
+                                                                            item.label
+                                                                        }
+                                                                    </Link>
+                                                                ),
+                                                            )}
+                                                        </>
+                                                    )}
+                                                </div>
+                                            )}
+                                        </div>
+                                    );
+                                }
+
+                                return (
+                                    <Link
+                                        key={link.path}
+                                        to={link.path}
+                                        className="text-[16px] font-medium text-[#575A5F] hover:text-[#0056b3] py-2"
+                                    >
+                                        {link.label}
+                                    </Link>
+                                );
+                            })}
                         </>
                     )}
 

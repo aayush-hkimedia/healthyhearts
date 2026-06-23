@@ -69,7 +69,7 @@ export const ABOUT_US = {
     history:
         'Healthy Hearts Gurgaon was founded as a Heart Disease Prevention Initiative by Dr. (Col) Monik Mehta, a renowned cardiologist in Gurgaon. With over 30 years of medical experience, including over 20 years in the Indian Army, which required him to travel and work in various parts of India and abroad, and having worked closely with people at all levels of society, he has witnessed how Indians disregard the very organ they have romanticised since time immemorial. Our South Asian gene pool, diet, and sedentary lifestyle have exacerbated this to the point where it affects even children.',
     mission:
-        'Our mission is to educate and assist Gurgaon residents in making simple lifestyle and eating habits changes that will reduce their risk of developing cardiovascular disease. We also work to aid in the prevention, diagnosis, investigation, and treatment of all types of heart diseases.',
+        'Our approach is to educate and assist Gurgaon residents in making simple lifestyle and eating habits changes that will reduce their risk of developing cardiovascular disease. We also work to aid in the prevention, diagnosis, investigation, and treatment of all types of heart diseases.',
     approach: [
         'Informing the patient about their condition and treatment options.',
         'Listening to and addressing the patient’s concerns and fears.',
@@ -210,9 +210,9 @@ export const SERVICES = [
             'Implantation of a cardiac resynchronization device to correct irregular heart rates and significantly enhance blood circulation.',
     },
     {
-        slug: 'cardiac-rehabilitation',
+        slug: 'cardiac-electrophysiology-&-rfa',
         icon: 'waves',
-        title: 'Cardiac Rehabilitation',
+        title: 'Cardiac Electrophsiology & RFA Page',
         description:
             'A structured outpatient recovery program combining exercise, education, and lifestyle modifications for long-term heart health.',
     },
@@ -3632,3 +3632,69 @@ export const HEART_ATTACK_RESOURCE = {
         doctorUrl: "/"
     }
 };
+
+interface Publication {
+    citation: string;
+    journal: string;
+    details: string;
+    authors: string;
+    doi?: string;
+}
+
+export const PUBLICATIONS_DATA: Publication[] = [
+    {
+        citation: "Letter to the editor.",
+        journal: "Journal of Current Cardiology",
+        details: "2(3):p 168, Sep–Dec 2024",
+        doi: "10.4103/JCC.JCC_39_24",
+        authors: "Mehta, Monik."
+    },
+    {
+        citation: "Acetylsalicylic Acid Desensitization in Patients with Acute Coronary Syndrome - A Systematic Review and Meta-Analysis. Manuscript Number: AJC-D-19-00293R1.",
+        journal: "American Journal of Cardiology",
+        details: "April 09, 2019",
+        authors: "Amitabh Chopra, M.B.A; Pablo Díez-Villanueva, MD, PhD; Juan Gabriel Córdoba-Soriano, MD; Joe KT Lee, MBBS, MRCP; Mona Al-Ahmad, MBBS; Victor A Ferraris, MD, PhD; Monik Mehta, MD, DM; Marek L Kowalski, MD, PhD."
+    },
+    {
+        citation: "Practical Approach to Constrictive Pericarditis.",
+        journal: "Int Arch Intern Med",
+        details: "2:006, 2018",
+        authors: "Mehta M."
+    },
+    {
+        citation: "Polymer coating embolism from intravascular medical devices- a clinical literature review.",
+        journal: "Cardiovascular Pathology",
+        details: "September–October, 2017, Volume 30, Pages 45–54",
+        authors: "Amitabh M.Chopra, Monik Mehta, JeanBismuth, MaksimShapiro, MichaelC. Fishbein, AlinaG.Bridges, Harry V.Vinters."
+    },
+    {
+        citation: "Submitral Aneurysm of the Left Ventricle.",
+        journal: "MJAFI",
+        details: "2004; 60: 399-401",
+        authors: "Lt Col V Jetley, Lt Col JS Duggal (Retd), Col Charanjit Singh, Lt Col S.K. Datta, Lt Col JS Sabharwal, Lt Col S Sofat, Lt Col M Mehta"
+    },
+    {
+        citation: "Techniques in Cardiology: PDA Closure in Children.",
+        journal: "MJAFI",
+        details: "2005; 61: 63-65",
+        authors: "Lt Col JS Duggal (Retd), Lt Col V Jetley, Lt Col JK Sharma (Retd), Brig. CharanjitSingh, Lt Col M Mehta, Lt Col JS Sabharwal, Lt Col Sunil Sofat, Lt Col P Bharadwaj"
+    },
+    {
+        citation: "Transcatheter Atrial Septal Defect and Patent DuctusArteriosus Device Closure in Children Weighing 15 Kg and Less.",
+        journal: "Indian Heart Journal",
+        details: "Sept-Oct, 2003; 55:(5) Article No. 252",
+        authors: "JS Dugal, V Jetley, C Singh, M Mehta, S Sofat, P Bhardwaj, A Bahadur"
+    },
+    {
+        citation: "Radiofrequency Ablation: Single-Center Experience in the Armed Forces.",
+        journal: "Indian Heart Journal",
+        details: "Sept-Oct, 2003; 55:(5) Article No. 216",
+        authors: "V Jetley, JS Dugal, C Singh, M Mehta, S Sofat, P Bhardwaj"
+    },
+    {
+        citation: "Pediatric Radiofrequency Ablation: Single-Center Experience in the Armed Forces.",
+        journal: "Indian Heart Journal",
+        details: "Sept-Oct, 2003; 55:(5) Article No. 217",
+        authors: "JS Dugal, V Jetley, C Singh, M Mehta, S Sofat, P Bhardwaj, A Bahadur"
+    }
+];
