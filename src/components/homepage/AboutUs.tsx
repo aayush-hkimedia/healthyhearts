@@ -69,7 +69,7 @@ const AboutSection: React.FC = () => {
                                 </div>
                                 <div className="min-w-0">
                                     <p className="font-bold text-[#0b1b36] text-[16px] leading-tight">
-                                        {DOCTOR.experience}+ Years
+                                        {DOCTOR.experience} Years
                                     </p>
                                     <p className="text-[10px] uppercase tracking-widest text-[#575A5F] font-bold whitespace-nowrap mt-0.5">
                                         Clinical Experience

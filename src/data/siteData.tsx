@@ -212,7 +212,7 @@ export const SERVICES = [
     {
         slug: 'cardiac-electrophysiology-&-rfa',
         icon: 'waves',
-        title: 'Cardiac Electrophsiology & RFA Page',
+        title: 'Cardiac Electrophsiology & RFA',
         description:
             'A structured outpatient recovery program combining exercise, education, and lifestyle modifications for long-term heart health.',
     },

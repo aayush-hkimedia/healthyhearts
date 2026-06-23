@@ -29,7 +29,9 @@ const Navbar: React.FC = () => {
     const [scrolled, setScrolled] = useState(false);
     const [searchQuery, setSearchQuery] = useState('');
     const [isSearchFocused, setIsSearchFocused] = useState(false);
-    const [expandedMobileMenu, setExpandedMobileMenu] = useState<string | null>(null);
+    const [expandedMobileMenu, setExpandedMobileMenu] = useState<string | null>(
+        null,
+    );
     const { pathname } = useLocation();
     const searchRef = useRef<HTMLDivElement>(null);
 
@@ -124,7 +126,9 @@ const Navbar: React.FC = () => {
     };
 
     const toggleMobileMenu = (menuName: string) => {
-        setExpandedMobileMenu(expandedMobileMenu === menuName ? null : menuName);
+        setExpandedMobileMenu(
+            expandedMobileMenu === menuName ? null : menuName,
+        );
     };
 
     return (
@@ -135,17 +139,17 @@ const Navbar: React.FC = () => {
                     : 'bg-[#FFFFFF]'
             }`}
         >
-            <nav className="flex justify-between items-center px-6 md:px-4 max-w-[1400px] mx-auto h-[76px]">
+            <nav className="flex justify-between items-center px-4 md:px-6 max-w-[1400px] mx-auto h-[76px]">
                 <Link
                     to="/"
-                    className="flex items-center gap-2 text-[#0b1b36] font-bold text-[22px] hover:opacity-80 transition-opacity"
+                    className="flex items-center gap-1.5 sm:gap-2 text-[#0b1b36] font-bold text-[18px] sm:text-[22px] hover:opacity-80 transition-opacity"
                 >
                     <Heart
                         className="text-[#0056b3]"
-                        size={26}
+                        size={24}
                         strokeWidth={2.5}
                     />
-                    <span className="hidden sm:inline">HealthyHearts</span>
+                    <span>HealthyHearts</span>
                 </Link>
 
                 <div className="hidden lg:flex items-center gap-6 xl:gap-8 h-full">
@@ -322,7 +326,7 @@ const Navbar: React.FC = () => {
                     </a>
                 </div>
 
-                <div className="lg:hidden flex items-center gap-3">
+                <div className="lg:hidden flex items-center gap-2 sm:gap-3">
                     <a
                         href="https://wa.me/919873214382"
                         target="_blank"
@@ -334,7 +338,9 @@ const Navbar: React.FC = () => {
                             alt="WhatsApp"
                             className="w-[18px] h-[18px] object-contain"
                         />
-                        <span className="hidden sm:inline">+91 98732 14382</span>
+                        <span className="hidden sm:inline">
+                            +91 98732 14382
+                        </span>
                     </a>
                     <button
                         onClick={() => setMobileOpen(!mobileOpen)}
