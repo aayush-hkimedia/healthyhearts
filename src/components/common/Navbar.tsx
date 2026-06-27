@@ -142,11 +142,11 @@ const Navbar: React.FC = () => {
             <nav className="flex justify-between items-center px-4 md:px-6 max-w-[1400px] mx-auto h-[76px]">
                 <Link
                     to="/"
-                    className="flex items-center gap-1.5 sm:gap-2 text-[#0b1b36] font-bold text-[18px] sm:text-[22px] hover:opacity-80 transition-opacity"
+                    className="flex items-center gap-1.5 sm:gap-2 text-[#0b1b36] font-bold text-[22px] sm:text-[22px] hover:opacity-80 transition-opacity"
                 >
                     <Heart
                         className="text-[#0056b3]"
-                        size={24}
+                        size={26}
                         strokeWidth={2.5}
                     />
                     <span>HealthyHearts</span>

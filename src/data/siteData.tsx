@@ -322,8 +322,8 @@ export const HOSPITAL_SERVICES = [
     { label: 'CRTD Implantation', path: '/services/crtd-lbba-implantation' },
     { label: 'TAVR', path: '/services/tavr' },
     {
-        label: 'Cardiac Rehabilitation',
-        path: '/services/cardiac-rehabilitation',
+        label: 'Cardiac Electrophysiology & RFA',
+        path: '/services/cardiac-electrophysiology-&-rfa',
     },
 ];
 
